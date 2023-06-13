@@ -86,7 +86,7 @@ public class CMClientApp {
         if (files != null) {
             for (File file : files) {
                 String filePath = file.getAbsolutePath();
-                System.out.println(filePath);
+               // System.out.println(filePath);
                 int logicalClock = 1; // Set the logical clock to 1 (initial value)
                 updateFileLogicalClock(filePath, logicalClock);
                 //System.out.println("나실행됌ㅋㅋ");
@@ -474,7 +474,7 @@ public class CMClientApp {
                             continue;
                             //createdFilePath2 = createdFilePath2.substring(0, createdFilePath2.length() - 1); // ~ 제거
                         }
-                        System.out.println("File created: " + createdFilePath2);
+                        System.out.println("파일 생성됨: " + createdFilePath2);
                         String currentDir = System.getProperty("user.dir");
                         String localpath = currentDir + "\\client-file-path\\" + createdFilePath2;
                         // 파일 생성에 대한 추가 처리 수행
@@ -495,7 +495,7 @@ public class CMClientApp {
                         String localpath = currentDir + "\\client-file-path\\" + modifiedFilePath;
                         int logicalClock = getFileLogicalClock(localpath);
                         logicalClock += 1;
-                        System.out.println("File modified: " + modifiedFilePath);
+                        System.out.println("파일 수정됨: " + modifiedFilePath);
                         updateFileLogicalClock(localpath,logicalClock);
 
                         if (flag) {
@@ -513,7 +513,7 @@ public class CMClientApp {
                             //checkFileExists(modifiedFilePath);
                         //}
 
-                        System.out.println("여기 호출되는겨????????????????????????");
+                       // System.out.println("여기 호출되는겨????????????????????????");
                         // flag = false;
                         //}//                 checkFileExists(modifiedFilePath);//파일 수정시
 //                        System.out.println("경로: "+ modifiedFilePath);
@@ -536,7 +536,7 @@ public class CMClientApp {
                         String serverFilePath = currentDir + "\\server-file-path\\" + id_name + "\\" + deletedFilePath;
                         String localFilePath = currentDir + "\\client-file-path\\" +deletedFilePath;
 
-                        System.out.println("remove실행됌!!!!!!!!");
+                        //System.out.println("remove실행됌!!!!!!!!");
                         removeFile(serverFilePath);//파일삭제
                         fileLogicalClocks.remove(localFilePath);
                         fileLogicalClocks.remove(serverFilePath.toString());  // 삭제된 파일의 논리 시계 정보를 제거합니다.
